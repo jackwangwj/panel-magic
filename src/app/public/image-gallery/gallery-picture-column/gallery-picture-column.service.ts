@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HsFileService } from 'app/service';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { ImageModel } from '../Model/ImageModel';
 import { map } from 'rxjs/operators';
 import { get }	from 'lodash'
@@ -90,73 +90,76 @@ export class GalleryPictureColumnService {
 		if (groupId != null || groupId != undefined) _params['group_id'] = groupId;
 		this.isNextPage = false;
 		this.isVisibleLoading = true;
-		return this.hsFileService.getFileList(_params).pipe(
-			map(res=>{
-				this.isVisibleLoading = false
-				if( res.status === 1 ) {
-					let _arr: ImageModel[] = [];
-					const _total = res.data.total;
-					const _data = res.data.data;
-					if( Array.isArray(_data) ) {
-						_data.forEach(_e=>{
-							const _id = get(_e,'id') * 1;
-							let _image = new ImageModel(<ImageModel>{
-								groupId: get(_e, 'group_id'),
-								id: _id,
-								name: get(_e, 'filename'),
-								fixedName: get(_e, 'filename'),
-								url: get(_e, 'filepath')
-							});
-							// 同时判断该图片是否存在于已选的图片列表中，是的话从里面取数据
-							if (this.checkImageMap.has(_id) ) {
-								_image = this.checkImageMap.get(_id)
-							}
-							_arr.push(_image)
-						});
-					}
-					// 计算是否有下一页
-					if (this.page * 20 < _total) this.isNextPage = true;
-					return _arr
-				}else {
-					return [];
-				}
-			})
-		)
+		return of([])
+		// return this.hsFileService.getFileList(_params).pipe(
+		// 	map(res=>{
+		// 		this.isVisibleLoading = false
+		// 		if( res.status === 1 ) {
+		// 			let _arr: ImageModel[] = [];
+		// 			const _total = res.data.total;
+		// 			const _data = res.data.data;
+		// 			if( Array.isArray(_data) ) {
+		// 				_data.forEach(_e=>{
+		// 					const _id = get(_e,'id') * 1;
+		// 					let _image = new ImageModel(<ImageModel>{
+		// 						groupId: get(_e, 'group_id'),
+		// 						id: _id,
+		// 						name: get(_e, 'filename'),
+		// 						fixedName: get(_e, 'filename'),
+		// 						url: get(_e, 'filepath')
+		// 					});
+		// 					// 同时判断该图片是否存在于已选的图片列表中，是的话从里面取数据
+		// 					if (this.checkImageMap.has(_id) ) {
+		// 						_image = this.checkImageMap.get(_id)
+		// 					}
+		// 					_arr.push(_image)
+		// 				});
+		// 			}
+		// 			// 计算是否有下一页
+		// 			if (this.page * 20 < _total) this.isNextPage = true;
+		// 			return _arr
+		// 		}else {
+		// 			return [];
+		// 		}
+		// 	})
+		// )
 	}
 
 	/**
 	 * 修改图片名称
 	 */
 	public editImageName( id: number, name: string ): Observable<boolean> {
-		return this.hsFileService.postFileEditName({
-			id: id,
-			name: name
-		}).pipe(
-			map(res=>{
-				if( res.status === 1 ) {
-					return true
-				}else {
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return this.hsFileService.postFileEditName({
+		// 	id: id,
+		// 	name: name
+		// }).pipe(
+		// 	map(res=>{
+		// 		if( res.status === 1 ) {
+		// 			return true
+		// 		}else {
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 	/**
 	 * 删除图片
 	 */
 	public delImage( ids: number[] ): Observable<boolean> {
-		return	this.hsFileService.postFileDel({
-			id: ids
-		}).pipe(
-			map(res=>{
-				if (res.status === 1) {
-					return true
-				} else {
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return	this.hsFileService.postFileDel({
+		// 	id: ids
+		// }).pipe(
+		// 	map(res=>{
+		// 		if (res.status === 1) {
+		// 			return true
+		// 		} else {
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 	/**
@@ -164,18 +167,19 @@ export class GalleryPictureColumnService {
 	 * ids是图片id列表
 	 */
 	public moveGroupFormImage( ids: number[] , groupId: number ): Observable<boolean> {
-		return this.hsFileService.postFileGroupMove({
-			ids: ids,
-			group_id: groupId
-		}).pipe(
-			map(res=>{
-				if( res.status === 1 ) {
-					return true
-				}else {
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return this.hsFileService.postFileGroupMove({
+		// 	ids: ids,
+		// 	group_id: groupId
+		// }).pipe(
+		// 	map(res=>{
+		// 		if( res.status === 1 ) {
+		// 			return true
+		// 		}else {
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 }

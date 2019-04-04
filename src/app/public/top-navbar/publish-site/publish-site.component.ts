@@ -6,7 +6,6 @@ import { AppDataService }	from '../../../appdata/app-data.service'
 import { ImageGalleryService }	from '../../image-gallery/image-gallery.service'
 import { PublishSiteModel }	from '../Model'
 
-import { HsXcxService }		from '../../../service'
 import { environment } from 'environments/environment';
 import { ImageModel } from '@ng-public/image-gallery/Model/ImageModel';
 
@@ -28,7 +27,6 @@ export class PublishSiteComponent implements OnInit {
 	constructor(
 		public tns: TopNavbarService,
 		public ads: AppDataService,
-		private hsXcxService: HsXcxService,
 		private igs: ImageGalleryService
 	) { }
 
@@ -49,40 +47,6 @@ export class PublishSiteComponent implements OnInit {
 				this.ads.appDataModel.thumb = data.url
 			}
 		})
-	}
-
-	/**
-	 * @author GR-03
-	 * @copyright 点击发布的时候做保存操作，同时新开页面跳转到管理端打包
-	 * @param     [param]
-	 * @return    [return]
-	 */
-	public publishGoToManager(): void {
-		this.isNzConfirmLoading = true
-		let _open = window.open("","_blank");
-		// 保存操作
-		// 先判断是否授权
-		this.hsXcxService.getXcxAuthStatus( {
-			app_id: this.ads.appDataModel.app_id
-		} ).subscribe( res=>{
-			if( res.status === 1 ) {
-				if( res.data.auth_status == true ) this.isAuthorization = true;
-				this.tns.saveXcxAppData( 'publish' ).subscribe(res=>{
-					// 表示保存成功了
-					// 同时跳转到管理端页面
-					if( res == true ) {
-						if( this.isAuthorization == false ) {
-							this.openUrl = `${environment.siteurl+'home/#/'}manager/${this.ads.appDataModel.app_id}/package`;
-						}else if( this.isAuthorization == true ) {
-							this.openUrl = `${environment.siteurl+'home/#/'}manager/${this.ads.appDataModel.app_id}/xcx/xcx-setting`;
-						}
-						_open.location.href = this.openUrl
-						this.isNzConfirmLoading = false
-						this.tns.publishSiteModel['isVisiableModal'] = false
-					}
-				})
-			}
-		} )
 	}
 
 }

@@ -61,14 +61,8 @@
 				<nz-tab [nzTitle]="'拨打电话'">
 					<app-tap-call-handler></app-tap-call-handler>
 				</nz-tab>
-				<nz-tab [nzTitle]="'跳转小程序'">
-					<app-tap-to-xcx-handler></app-tap-to-xcx-handler>
-				</nz-tab>
 				<nz-tab [nzTitle]="'功能'">
 					<app-tap-features-handler></app-tap-features-handler>
-				</nz-tab>
-				<nz-tab [nzTitle]="'详情'">
-					<app-tap-detail-handler></app-tap-detail-handler>
 				</nz-tab>
 				<ng-container *ngIf="isEnterEditVesselCondition">
 					<nz-tab [nzTitle]="'切换状态'">

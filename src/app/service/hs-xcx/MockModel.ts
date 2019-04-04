@@ -1472,7 +1472,7 @@ export const MockModel = {
 			}
 		}
 	},
-	app_name: '测试小程序',
+	app_name: 'Panel-Magic',
 	remark: null,
 	thumb: null,
 	template_info: { template_type: null },

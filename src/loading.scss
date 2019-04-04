@@ -7,153 +7,101 @@
     display: flex;
     justify-content: center;
 	align-items: center;
+	background-color: #222;
 }
 
-.la-cog,
-.la-cog > div {
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+$shadow: #000;
 
-.la-cog {
-    display: block;
-    font-size: 0;
-    color: #ff8800;
-    opacity: .8;
-}
-
-.la-cog.la-dark {
-    color: #333;
-}
-
-.la-cog > div {
-    display: inline-block;
-    float: none;
-    background-color: currentColor;
-    border: 0 solid currentColor;
-}
-
-.la-cog {
-    width: 31px;
-    height: 31px;
-}
-
-.la-cog > div {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border-style: dashed;
-    border-width: 2px;
-    border-radius: 100%;
-    -webkit-animation: cog-rotate 4s linear infinite;
-    -moz-animation: cog-rotate 4s linear infinite;
-    -o-animation: cog-rotate 4s linear infinite;
-    animation: cog-rotate 4s linear infinite;
-}
-
-.la-cog > div:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    border: 2px solid currentColor;
-    border-radius: 100%;
-}
-
-.la-cog.la-sm {
-    width: 15px;
-    height: 15px;
-}
-
-.la-cog.la-sm > div {
-    border-width: 1px;
-}
-
-.la-cog.la-sm > div:after {
-    border-width: 1px;
-}
-
-.la-cog.la-2x {
-    width: 61px;
-    height: 61px;
-}
-
-.la-cog.la-2x > div {
-    border-width: 4px;
-}
-
-.la-cog.la-2x > div:after {
-    border-width: 4px;
-}
-
-.la-cog.la-3x {
-    width: 91px;
-    height: 91px;
-}
-
-.la-cog.la-3x > div {
-    border-width: 6px;
-}
-
-.la-cog.la-3x > div:after {
-    border-width: 6px;
-}
-
-/*
- * Animation
- */
-@-webkit-keyframes cog-rotate {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-moz-keyframes cog-rotate {
-    0% {
-        -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -moz-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-o-keyframes cog-rotate {
-    0% {
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes cog-rotate {
-    0% {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
+.loader {
+	width: 96px;
+	position: relative;
+	& .css-square {
+		position: absolute;
+		top: 50%;
+		width: 25px;
+		height: 7px;
+		background: white;
+		-webkit-box-shadow: 2px 2px 3px 0px $shadow;
+		box-shadow: 2px 2px 3px 0px $shadow;
 	}
+}
+
+.loader .square1 {
+    left: 70px;
+    -webkit-animation: dominos 1s 0.125s ease infinite;
+    animation: dominos 1s 0.125s ease infinite;
+}
+
+.loader .square2 {
+    left: 60px;
+    -webkit-animation: dominos 1s 0.3s ease infinite;
+    animation: dominos 1s 0.3s ease infinite;
+}
+
+.loader .square3 {
+    left: 50px;
+    -webkit-animation: dominos 1s 0.425s ease infinite;
+    animation: dominos 1s 0.425s ease infinite;
+}
+
+.loader .square4 {
+    left: 40px;
+    -webkit-animation: dominos 1s 0.540s ease infinite;
+    animation: dominos 1s 0.540s ease infinite;
+}
+
+.loader .square5 {
+    left: 30px;
+    -webkit-animation: dominos 1s 0.665s ease infinite;
+    animation: dominos 1s 0.665s ease infinite;
+}
+
+.loader .square6 {
+    left: 20px;
+    -webkit-animation: dominos 1s 0.79s ease infinite;
+    animation: dominos 1s 0.79s ease infinite;
+}
+
+.loader .square7 {
+    left: 10px;
+    -webkit-animation: dominos 1s 0.9s ease infinite;
+    animation: dominos 1s 0.9s ease infinite;
+}
+
+.loader .square8 {
+    left: 0px;
+    -webkit-animation: dominos 1s 1s ease infinite;
+    animation: dominos 1s 1s ease infinite;
+}
+
+
+@-webkit-keyframes dominos {
+    50% {
+        opacity: 0.7;
+    }
+
+    75% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes dominos {
+    50% {
+        opacity: 0.7;
+    }
+
+    75% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    80% {
+        opacity: 1;
+    }
 }

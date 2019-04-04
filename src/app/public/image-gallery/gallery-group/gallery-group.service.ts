@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ImageGroupModel } from '../Model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HsFileService } from 'app/service';
 import { get } from 'lodash'
 import { map } from 'rxjs/operators';
@@ -30,48 +30,49 @@ export class GalleryGroupService {
 	 */
 	public acquirePictureGroupList(): Observable<ImageGroupModel[]> {
 		this.pictureGroupListMap.clear();
-		return this.hsFileService.getFileGroupList().pipe(
-			map(res => {
-				if (res.status === 1) {
-					const _data = res.data;
-					const _excess = get(_data, 'excess') || { all: 0, ungrouped: 0 };
-					const _data_list = get(_data, 'list') || [];
-					let _result: ImageGroupModel[] = [];
-					// 先创建全部图片这个分组,并默认选中这个全部图片
-					const _all_picture_group = new ImageGroupModel(<ImageGroupModel>{
-						id: null,
-						name: '全部图片',
-						total: _excess.all
-					});
-					this.pictureGroupListMap.set(_all_picture_group.id, _all_picture_group)
-					_result.push(_all_picture_group)
-					// 再创建未分组;
-					const _none_group = new ImageGroupModel(<ImageGroupModel>{
-						id: 0,
-						name: '未分组的',
-						total: _excess.ungrouped
-					})
-					this.pictureGroupListMap.set(_none_group.id, _none_group)
-					_result.push(_none_group)
-					// 最后才是自己创建的分组列表
-					_data_list.forEach(_e => {
-						const _group_model = new ImageGroupModel(<ImageGroupModel>{
-							id: get(_e, 'id'),
-							name: get(_e, 'name'),
-							total: get(_e, 'count'),
-							fixedName: get(_e, 'name'),
-							isAllowDel: true,
-							isAllowEdit: true
-						})
-						this.pictureGroupListMap.set(_group_model.id, _group_model)
-						_result.push(_group_model)
-					});
-					return _result
-				}else {
-					return []
-				}
-			})
-		)
+		return of([])
+		// return this.hsFileService.getFileGroupList().pipe(
+		// 	map(res => {
+		// 		if (res.status === 1) {
+		// 			const _data = res.data;
+		// 			const _excess = get(_data, 'excess') || { all: 0, ungrouped: 0 };
+		// 			const _data_list = get(_data, 'list') || [];
+		// 			let _result: ImageGroupModel[] = [];
+		// 			// 先创建全部图片这个分组,并默认选中这个全部图片
+		// 			const _all_picture_group = new ImageGroupModel(<ImageGroupModel>{
+		// 				id: null,
+		// 				name: '全部图片',
+		// 				total: _excess.all
+		// 			});
+		// 			this.pictureGroupListMap.set(_all_picture_group.id, _all_picture_group)
+		// 			_result.push(_all_picture_group)
+		// 			// 再创建未分组;
+		// 			const _none_group = new ImageGroupModel(<ImageGroupModel>{
+		// 				id: 0,
+		// 				name: '未分组的',
+		// 				total: _excess.ungrouped
+		// 			})
+		// 			this.pictureGroupListMap.set(_none_group.id, _none_group)
+		// 			_result.push(_none_group)
+		// 			// 最后才是自己创建的分组列表
+		// 			_data_list.forEach(_e => {
+		// 				const _group_model = new ImageGroupModel(<ImageGroupModel>{
+		// 					id: get(_e, 'id'),
+		// 					name: get(_e, 'name'),
+		// 					total: get(_e, 'count'),
+		// 					fixedName: get(_e, 'name'),
+		// 					isAllowDel: true,
+		// 					isAllowEdit: true
+		// 				})
+		// 				this.pictureGroupListMap.set(_group_model.id, _group_model)
+		// 				_result.push(_group_model)
+		// 			});
+		// 			return _result
+		// 		}else {
+		// 			return []
+		// 		}
+		// 	})
+		// )
 	};
 
 
@@ -79,53 +80,56 @@ export class GalleryGroupService {
 	 * 创建图片分组
 	 */
 	public createPictureGroup(): Observable<boolean> {
-		return this.hsFileService.postFileGroupCreate({
-			name: '新分组'
-		}).pipe(
-			map(res=>{
-				if( res.status === 1 ) {
-					return true
-				}else {
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return this.hsFileService.postFileGroupCreate({
+		// 	name: '新分组'
+		// }).pipe(
+		// 	map(res=>{
+		// 		if( res.status === 1 ) {
+		// 			return true
+		// 		}else {
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 	/**
 	 * 修改分组名称
 	 */
 	public editPictureGroup( id: number, name: string ): Observable<boolean> {
-		return this.hsFileService.postFileGroupSave({
-			id: id,
-			name: name
-		}).pipe(
-			map(res=>{
-				if( res.status === 1 ) {
-					return true
-				}else {
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return this.hsFileService.postFileGroupSave({
+		// 	id: id,
+		// 	name: name
+		// }).pipe(
+		// 	map(res=>{
+		// 		if( res.status === 1 ) {
+		// 			return true
+		// 		}else {
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 	/**
 	 * 删除分组
 	 */
 	public delPictureGroup( id: number ): Observable<boolean> {
-		return this.hsFileService.postFileGroupDel({
-			id: id
-		}).pipe(
-			map(res=>{
-				if( res.status === 1 ) {
-					return true
-				}else {
-					this.nzMessageService.error(res.message);
-					return false
-				}
-			})
-		)
+		return of(false)
+		// return this.hsFileService.postFileGroupDel({
+		// 	id: id
+		// }).pipe(
+		// 	map(res=>{
+		// 		if( res.status === 1 ) {
+		// 			return true
+		// 		}else {
+		// 			this.nzMessageService.error(res.message);
+		// 			return false
+		// 		}
+		// 	})
+		// )
 	}
 
 }

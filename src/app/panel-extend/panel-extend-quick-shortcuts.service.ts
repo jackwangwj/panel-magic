@@ -361,21 +361,21 @@ export class PanelExtendQuickShortcutsService {
 	 * 执行图片手动上传操作，然后生成对应的图片组件widget，然后再选中
 	 */
 	public handleForClipboardPasteFile(file: File): void {
-		const _mes_id = this.nzMessageService.loading('文件上传中...',{nzDuration: 0}).messageId;
-		const _form_data = new FormData();
-		_form_data.append('file',file,file.name);
-		const _header = this.appService.getCommonHeader(true, null);
-		this.httpClient.post<{ status: number, [key: string]: any }>(this.hsFileService.postUploadURL + '?app_id=' + this.appDataService.appDataModel.app_id, _form_data, {
-			headers: _header
-		}).subscribe(res=>{
-			this.nzMessageService.remove(_mes_id)
-			if (res.status === 1) {
-				const _data = get(res,'data')
-				this.handleCreatePictureWidget(_data)
-			}
-		},()=>{
-			this.nzMessageService.error('上传失败')
-		})
+		// const _mes_id = this.nzMessageService.loading('文件上传中...',{nzDuration: 0}).messageId;
+		// const _form_data = new FormData();
+		// _form_data.append('file',file,file.name);
+		// const _header = this.appService.getCommonHeader(true, null);
+		// this.httpClient.post<{ status: number, [key: string]: any }>(this.hsFileService.postUploadURL + '?app_id=' + this.appDataService.appDataModel.app_id, _form_data, {
+		// 	headers: _header
+		// }).subscribe(res=>{
+		// 	this.nzMessageService.remove(_mes_id)
+		// 	if (res.status === 1) {
+		// 		const _data = get(res,'data')
+		// 		this.handleCreatePictureWidget(_data)
+		// 	}
+		// },()=>{
+		// 	this.nzMessageService.error('上传失败')
+		// })
 	};
 
 	/**
