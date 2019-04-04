@@ -1,0 +1,93 @@
+<div class="top">
+
+	<div class="content">
+		<div class="left">
+			<!-- <a >返回</a> -->
+			<div class="app-name">
+				<span>{{appDataInfo.app_name}}</span>
+			</div>
+		</div>
+		<div class="center">
+			<ul class="item-ul clearfix">
+				<!-- <li class="item-li" (click)="openManager()">
+					<i class="iconfont_xiaochengxu xiaochengxu-guanlizhongxin"></i>
+					管理
+				</li> -->
+				<!-- <li class="item-li">
+					<i class="iconfont_xiaochengxu xiaochengxu-kefu"></i>
+					客服
+				</li>
+				<li class="item-li">
+					<i class="iconfont_xiaochengxu xiaochengxu-bangzhu-yin"></i>
+					帮助
+				</li> -->
+
+				<!-- <nz-dropdown
+					[nzTrigger]="'click'"
+					[nzPlacement]="'bottomCenter'"
+					[nzClickHide]="false">
+					<li class="item-li"
+						nz-dropdown
+						(click)="tbns.historicalRecordModel.initData();tbns.fnGetRecordList()">
+						<i class="iconfont_xiaochengxu xiaochengxu-lishi"></i>
+						历史
+					</li>
+					<ul
+						nz-dropdown-custom
+						#dropdownEl
+						[ngStyle]="{'width': '300px','background-color': '#fff','padding': '5px 15px','max-height': '200px','overflow-y': 'auto','border-radius': '3px','box-shadow': '1px 1px 5px 1px #ddd'}"
+						class="record-item">
+						<li class="record-list clearfix"
+							[ngStyle]="{'margin': '5px 0'}"
+							*ngFor="let list of tbns.historicalRecordModel.recordList;index as i">
+							<div class="record-content">
+								<span
+									class="time f-l"
+									[ngStyle]="{'line-height': '22px'}">
+									<em>{{i+1}}: </em>{{list.add_time}}
+								</span>
+								<div class="restore f-r">
+								    <button
+								    	nz-button nzSize="small"
+								    	[nzType]="'dashed'"
+								    	(click)="tbns.restoreAppDataHistroy(list.id)">
+										<span>恢复</span>
+								    </button>
+								</div>
+							</div>
+						</li>
+						<li class="record-list clearfix"
+							*ngIf="tbns.historicalRecordModel.isLoading"
+							[ngStyle]="{'margin': '5px 0','text-align': 'center'}">
+							<nz-spin></nz-spin>
+						</li>
+					</ul>
+				</nz-dropdown> -->
+
+			</ul>
+		</div>
+		<div class="right">
+			<!-- <button
+				nz-button
+				[nzType]="'default'"
+				[nzLoading]="tbns.btnSaveLoading"
+				class="mr-10"
+				(click)="handleSave()">
+				<span>保存</span>
+		    </button> -->
+		    <!-- <button nz-button [nzType]="'default'">
+				<span>浏览</span>
+		    </button> -->
+		    <!-- <button
+		    	nz-button
+		    	[nzType]="'primary'"
+		    	(click)="handlePublishSiteOrShelvesTemplate()">
+				<span>{{ads.appDataModel.template_info.template_type==null?'发布':'保存并上架'}}</span>
+		    </button> -->
+		</div>
+	</div>
+
+</div>
+
+<!-- 发布设置 -->
+<app-publish-site></app-publish-site>

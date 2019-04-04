@@ -1,0 +1,43 @@
+@import '../theme/variables.scss';
+.top {
+    height: $topHeight;
+    .scale-number {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+    }
+    .content {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        height: $topHeight;
+        align-items: center;
+        .left {
+            // margin-left: 20px;
+            .app-name {
+				font-size: 16px;
+			}
+        }
+        .center {
+            .item-ul {
+                display: flex;
+                .item-li {
+                    // float: left;
+                    margin: 0 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .right {
+            width: 160px;
+            text-align: right;
+            max-width: 160px;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .ant-notification-notice {
+        line-height: 2.7
+    }
+}

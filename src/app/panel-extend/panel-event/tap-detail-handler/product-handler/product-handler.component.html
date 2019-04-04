@@ -1,0 +1,88 @@
+<nz-drawer
+	[nzVisible]="isVisebleDrawer"
+	nzPlacement="top"
+	[nzTitle]="'选择产品'"
+	[nzHeight]="drawerHeight"
+	(nzOnClose)="handleCloseDrawer()">
+	<!-- 选择产品 -->
+	<div class="choose-product-main">
+		<!-- 头部 -->
+		<div class="header">
+			<div class="left">
+				<div class="search mr-20">
+					<nz-input-group nzSearch nzSize="default" [nzSuffix]="nameTpl" style="width: 240px;">
+						<input nz-input name="name" [(ngModel)]="searchValue" placeholder="请输入产品名称">
+						<ng-template #nameTpl>
+							<button nz-button nzType="primary" nzSize="default" nzSearch (click)="searchProductList()">搜索</button>
+						</ng-template>
+					</nz-input-group>
+				</div>
+				<!-- 当前选中的产品 -->
+				<div class="current-check-product" *ngIf="currentProductInfo">
+					当前选中的产品：<span class="color-f70">{{currentProductInfo.name}}</span>
+				</div>
+			</div>
+			<div class="right">
+				<button nz-button class="mr-10" (click)="handleCloseDrawer()">取消</button>
+				<button nzType="primary" nz-button (click)="handleOkDrawer()">确定</button>
+			</div>
+		</div>
+		<!-- 产品列表 -->
+		<div class="product-list-container">
+			<div class="item-content">
+				<nz-spin [nzTip]="'数据加载中...'" [nzSpinning]="isVisebleLoading">
+					<div class="scroll-view" [ngStyle]="{'max-height': drawerHeight-130 + 'px'}">
+						<ul class="item-ul">
+							<li class="item-li" [class.active]="currentProductInfo?currentProductInfo.id==list.id:false" *ngFor="let list of productAwaitList"
+							 (click)="checkProduct(list)">
+								<div class="item-block">
+									<nz-card style="width:180px;" [nzCover]="coverTemplate" nzHoverable>
+										<nz-card-meta [nzTitle]="list.name"></nz-card-meta>
+									</nz-card>
+								</div>
+								<ng-template #coverTemplate>
+									<ng-thumb-auto [imgSize]="180" [imgSrc]="list.thumb"></ng-thumb-auto>
+								</ng-template>
+							</li>
+						</ul>
+						<!-- 加载更多按钮 -->
+						<div class="loading-more" *ngIf="isNextPage">
+							<button nzType="default" nz-button (click)="addMoreProduct()">加载更多</button>
+						</div>
+					</div>
+				</nz-spin>
+			</div>
+		</div>
+	</div>
+</nz-drawer>
+
+
+<div class="product-handler-main">
+
+	<div class="add-product">
+
+		<ng-container *ngIf="currentProductInfo;else noCurrentProductEl">
+
+			<nz-card style="width:180px;" [nzCover]="currentCoverTemplateEl" [nzActions]="[actionEditEl,actionLookEl]">
+				<nz-card-meta [nzTitle]="currentProductInfo.name"></nz-card-meta>
+			</nz-card>
+			<ng-template #currentCoverTemplateEl>
+				<ng-thumb-auto [imgSize]="180" [imgSrc]="currentProductInfo.thumb"></ng-thumb-auto>
+			</ng-template>
+			<ng-template #actionEditEl>
+				<i nz-icon nz-tooltip="修改选择" type="edit" (click)="acceptOpenProductModal()"></i>
+			</ng-template>
+			<ng-template #actionLookEl>
+				<i nz-icon nz-tooltip="查看详情" type="eye"></i>
+			</ng-template>
+
+		</ng-container>
+		<ng-template #noCurrentProductEl>
+
+			<button nz-button nzType="primary" (click)="acceptOpenProductModal()">选择产品</button>
+
+		</ng-template>
+
+	</div>
+
+</div>

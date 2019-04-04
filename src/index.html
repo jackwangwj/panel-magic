@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>星客-智能小程序-制作</title>
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<script type="text/javascript">
+	// 用户退出拦截
+	function exit( ) {
+		return ''
+	}
+</script>
+<style type="text/css">
+    .icon {
+       width: 2em;
+       height: 2em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+</style>
+<body onbeforeunload="return exit()">
+	<app-root></app-root>
+	<div id="GLOBALLOADING">
+		<div class="la-cog la-2x">
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

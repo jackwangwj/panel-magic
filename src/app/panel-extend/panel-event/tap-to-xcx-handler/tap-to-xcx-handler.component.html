@@ -1,0 +1,28 @@
+<div class="xcx-main">
+	<div class="container">
+		<div nz-row nzAlign="middle" nzType="flex" nzJustify="center" class="mt-10">
+			<div nz-col [nzSpan]="4">
+				<span class="title"></span>
+			</div>
+			<div nz-col [nzSpan]="14">
+				<label nz-checkbox [(ngModel)]="isGoToCurrentXcx" (ngModelChange)="acceptIsGoToCurrentXcxChange($event)">跳转至当前小程序</label>
+			</div>
+		</div>
+		<div nz-row nzAlign="middle" nzType="flex" nzJustify="center" class="mt-10">
+			<div nz-col [nzSpan]="4">
+				<span class="title">APPID：</span>
+			</div>
+			<div nz-col [nzSpan]="14">
+				<input nz-input [(ngModel)]="currentTapToXcxHandler.xcxAppid" placeholder="请输入APPID" [disabled]="isGoToCurrentXcx" (ngModelChange)="acceptAppIdChange($event)">
+			</div>
+		</div>
+		<div nz-row nzAlign="middle" nzType="flex" nzJustify="center" class="mt-10">
+			<div nz-col [nzSpan]="4">
+				<span class="title">页面路径(可选)：</span>
+			</div>
+			<div nz-col [nzSpan]="14">
+				<input nz-input [(ngModel)]="currentTapToXcxHandler.xcxPageUrl" placeholder="请输入页面路径">
+			</div>
+		</div>
+	</div>
+</div>

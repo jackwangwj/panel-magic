@@ -1,0 +1,8 @@
+<div class="rich-text-site">
+    <ueditor [(ngModel)]="autoWidget['content']"
+        [config]="uedConf"
+        #ueditorEl
+		(onPreReady)="onPreReady($event)"
+		(ngModelChange)="accpetRichChange($event)"
+        [loadingTip]="'富文本插件加载中...'"></ueditor>
+</div>

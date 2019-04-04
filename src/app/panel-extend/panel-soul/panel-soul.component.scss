@@ -1,0 +1,131 @@
+.soul-main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .widget-tabset {
+        height: 100%;
+        .component-library {
+            .widgte-block {
+                border: 1px dashed #ccc;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.25s;
+                background-color: #fafafa;
+                margin-bottom: 15px;
+                flex-direction: column;
+                &:hover {
+                    border: 1px solid #1890ff;
+                }
+            }
+        }
+    }
+    .soul-footer {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #fff;
+        box-shadow: 0px 0px 6px -1px #e6e6e6;
+        z-index: 1;
+        .block {
+            cursor: pointer;
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// :host ::ng-deep {
+//     background: #F5F5F5;
+//     overflow: hidden;
+//     display: block;
+//     height: 100%;
+//     .ant-tabs {
+//         height: 100%;
+//     }
+//     .ant-tabs-nav {
+//         width: 100%;
+//     }
+//     .ant-tabs-card .ant-tabs-content {
+//         height: 100%;
+//         margin-top: -16px;
+//     }
+//     .ant-tabs-card .ant-tabs-content .ant-tabs-tabpane {
+//         background: #fff;
+//         padding: 16px;
+//         height: 100%;
+//     }
+//     .ant-tabs-card .ant-tabs-bar {
+//         width: initial !important;
+//     }
+//     .ant-tabs-card .ant-tabs-bar .ant-tabs-tab {
+//         border-color: transparent;
+//         background: transparent;
+//         text-align: center;
+//     }
+//     .ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active {
+//         border-color: #fff;
+//         background: #fff;
+//     }
+//     .ant-tabs-vertical.ant-tabs-left>.ant-tabs-content{
+// 		padding-left: initial;
+// 	}
+// }
+:host ::ng-deep {
+    background: #F5F5F5;
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    .ant-tabs {
+        height: 100%;
+    }
+    .ant-tabs-nav {
+        width: 100%;
+    }
+    .ant-tabs-card .ant-tabs-content {
+        height: 100%;
+        margin-top: -16px;
+    }
+    .ant-tabs-card .ant-tabs-content .ant-tabs-tabpane {
+        background: #fff;
+        padding: 16px;
+        height: 100%;
+    }
+    .ant-tabs-card .ant-tabs-bar {
+        border-color: #fff;
+    }
+    .ant-tabs-card .ant-tabs-bar .ant-tabs-tab {
+        border-color: transparent;
+        background: transparent; // width: 50%;
+        text-align: center;
+    }
+    .ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active {
+        border-color: #fff;
+        background: #fff;
+    }
+    .ant-divider-horizontal {
+        margin: 16px 0;
+    }
+}
+
+// 动态容器样式
+.place-holder {
+    .header-add-btn {
+        display: flex;
+        justify-content: space-between;
+        .add {
+            cursor: pointer;
+        }
+    }
+}
+
+
+.width-100 {
+	width: 100%;
+}
