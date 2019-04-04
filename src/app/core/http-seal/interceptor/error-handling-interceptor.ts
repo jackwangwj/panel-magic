@@ -110,7 +110,6 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
 	 * @param err
 	 */
     handleError(err: HttpErrorResponse): Observable<any> {
-		console.log(err,'httperror')
         if (err.name == "TimeoutError") {
             this.nzNotificationService.create(
                 "error",
@@ -168,19 +167,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
             setTimeout(() => {
                 this._noLoginMsgShow = false
             }, 3000)
-            // this.toLogin()
         }
     }
 
-    /**
-     * 跳登录
-     */
-    toLogin() {
-		let cbUrl = document.location.href;
-		if( environment.isJumpXny ) {
-			setTimeout(() => {
-				window.location.href = `${this.httpSealData.commonHostXNY}/home/#/login?xny_callback=` + encodeURIComponent(cbUrl)
-			}, 2000)
-		}
-    }
 }

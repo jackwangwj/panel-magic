@@ -49,7 +49,8 @@ export class PanelWidgetPictureComponent implements OnInit {
 			const _picture = _inset_widget[0];
 			// 获取原始宽高
 			if (_picture.autoWidget.content ) {
-				const _img_url = environment.fileurl + _picture.autoWidget.content
+				const _img_url = _picture.autoWidget.content
+				// const _img_url = environment.fileurl + _picture.autoWidget.content
 				const _image_obj = new Image()
 				_image_obj.src = _img_url;
 				// 原始图片的宽度与高度的比例

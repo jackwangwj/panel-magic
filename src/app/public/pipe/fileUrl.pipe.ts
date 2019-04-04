@@ -12,18 +12,18 @@ export class FileUrlPipe implements PipeTransform {
         if(!environment.production){
             //上线
             if( flag == 'normal' ){
-                return result = value ? environment.fileurl + value : '/assets/image/default.png'
+                return result = value ? value : '/assets/image/default.png'
             }
             if( flag == 'upload' ){
-                return result = value ? environment.fileurl + value : '/assets/image/default.png'
+                return result = value ? value : '/assets/image/default.png'
             }
         }else{
             //调试 （资源用本地，upload用远程）
             if( flag == 'normal' ){
-                return result = value ? environment.fileurl + value : 'assets/image/default.png'
+                return result = value ? value : 'assets/image/default.png'
             }
             if( flag == 'upload' ){
-                return result = value ? environment.fileurl + value : 'assets/image/default.png'
+                return result = value ? value : 'assets/image/default.png'
             }
         }
     }

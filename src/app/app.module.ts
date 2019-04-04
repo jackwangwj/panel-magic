@@ -31,17 +31,7 @@ import zh from '@angular/common/locales/zh'
 registerLocaleData(zh)
 import { DirectiveService } from '@ng-public/directive/directive.service'
 
-// fundebug配置
-// import * as fundebug from 'fundebug-javascript'
 import { environment } from 'environments/environment';
-// fundebug.apikey = '7a4a21764ac55d4137289e1daf819de319d413bd6464473ef7c5bfe6d9605c5f'
-
-// 定义FundebugErrorHandler
-// export class FundebugErrorHandler implements ErrorHandler {
-// 	handleError(err: any): void {
-// 		fundebug.notifyError(err)
-// 	}
-// };
 
 @NgModule({
 	declarations: [AppComponent, HomeComponent],
@@ -60,18 +50,7 @@ import { environment } from 'environments/environment';
 	providers: [
 		AppService,
 		DirectiveService,
-		AppDataService,
-		// {
-		// 	provide: ErrorHandler,
-		// 	useFactory: (injector: Injector) => {
-		// 		if (environment.production) {
-		// 			return new FundebugErrorHandler()
-		// 		} else {
-		// 			return new ErrorHandler()
-		// 		}
-		// 	},
-		// 	deps: [Injector]
-		// }
+		AppDataService
 	],
 	bootstrap: [AppComponent]
 })

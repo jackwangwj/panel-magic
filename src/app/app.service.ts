@@ -28,11 +28,7 @@ export class AppService {
      * 获取图标链接
      */
 	public resolveIconUrl() {
-		if( environment.production ) {
-			this.iconUrls = this.safeUrl(`${environment.fileurl}editApp/assets/iconfont/iconfont.css?v=${environment.statics_version}`)
-		}else {
-			this.iconUrls = this.safeUrl(`/assets/iconfont/iconfont.css?v=${environment.statics_version}`)
-		}
+		this.iconUrls = this.safeUrl(`/assets/iconfont/iconfont.css?v=${environment.statics_version}`)
 	}
 
 	/**

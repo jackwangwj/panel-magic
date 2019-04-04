@@ -11,11 +11,8 @@ export class HttpSealData {
     //文件资源 统一 地址
     fileHost: string
 
-    commonHostXNY: string
-
     constructor() {
-		this.commonHost = environment.siteurl
-		this.fileHost = environment.fileurl
-		this.commonHostXNY = environment.xnyurl
+		this.commonHost = ''
+		this.fileHost = ''
     }
 }

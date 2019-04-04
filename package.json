@@ -41,7 +41,6 @@
 		"ngx-amap": "^2.1.1",
 		"ngx-color": "^2.0.4",
 		"ngx-cookie": "^4.1.2",
-		"ngx-ueditor": "^2.1.3",
 		"psd": "^3.2.0",
 		"replace-in-file": "^3.4.2",
 		"rxjs": "^6.3.3",

@@ -45,7 +45,7 @@ export class GalleryPictureCheckedComponent implements OnInit {
 	}
 
 	public get uploadUrl(): string {
-		return `${environment.siteurl}api/upload?app_id=${this.appId}${this.currentPictureGroup && this.currentPictureGroup.id != null ? '&group_id=' + this.currentPictureGroup.id : ''}`
+		return `api/upload?app_id=${this.appId}${this.currentPictureGroup && this.currentPictureGroup.id != null ? '&group_id=' + this.currentPictureGroup.id : ''}`
 	}
 
 	public get pictureGroupList() : ImageGroupModel[] {
