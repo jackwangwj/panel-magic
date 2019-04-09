@@ -1,4 +1,3 @@
-import { TYPE_COMPONENT }	from '@ng-public/type'
 import { OrientationModel } from './OrientationModel';
 
 interface StyleLabel {
@@ -24,7 +23,7 @@ export interface ICustomfeature {
  */
 export class WidgetModel {
 
-	public type : TYPE_COMPONENT;
+	public type : string;
 	public content : any;
 	public style : StyleModel;
 	public customfeature: ICustomfeature;
