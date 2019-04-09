@@ -11,7 +11,7 @@ import { NewPageModel } from 'app/panel-extend/panel-catalogue/Model';
 })
 export class AppDataService {
 
-	// 小程序详情总数据
+	// 页面内容总数据
 	public appDataModel: AppDataModel = new AppDataModel()
 
 	/**
@@ -95,17 +95,6 @@ export class AppDataService {
 		} else {
 			this.setAppConfigData('home_page_router', this.appDataModel.cata_data[0].pages[0].router)
 		}
-		// 检测是否是模板
-		// type为1就是小程序模板，0就是单页面模板
-		if (data.template_info && data.template_info.type != undefined) {
-			const _info = data.template_info
-			this.appDataModel.template_info = {
-				template_type: _info.type == 0 ? 'page' : 'xcx',
-				name: _info.name,
-				status: _info.status,
-				tag_id: _info.tag_id
-			}
-		};
 		this.launchAppData$.next( this.appDataModel )
 	}
 

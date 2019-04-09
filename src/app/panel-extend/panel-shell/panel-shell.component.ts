@@ -21,7 +21,7 @@ import { PanelScaleplateService } from '../panel-scaleplate/panel-scaleplate.ser
 export class PanelShellComponent implements OnInit, OnDestroy {
 	// 订阅页面的变化
 	private pageChangeRX$: Subscription
-	// 订阅小程序详情数据
+	// 订阅页面内容详情数据
 	private appDataRX$: Subscription
 
 	public get panelInfo(): PanelInfoModel {

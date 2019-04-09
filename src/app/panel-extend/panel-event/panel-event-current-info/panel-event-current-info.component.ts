@@ -15,7 +15,7 @@ export class PanelEventCurrentInfoComponent implements OnInit {
 	@Input()
 	public currentWidgetHasEventHandler: EventModel;
 
-	// 当前小程序的appId
+	// 当前的appId
 	public get currentAppId(): string {
 		return this.appDataService.appDataModel.app_id
 	}

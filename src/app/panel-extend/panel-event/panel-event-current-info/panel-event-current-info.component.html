@@ -23,12 +23,6 @@
 			拨打电话 <span class="color-f70">{{currentWidgetHasEventHandler.eventParams.phone_num}}</span>
 		</ng-container>
 
-		<!-- 跳转小程序 -->
-		<ng-container *ngSwitchCase="'tapToXcxHandler'">
-			跳转至 <span class="color-f70">{{currentWidgetHasEventHandler.eventParams.xcx_appid==currentAppId?'当前':'其他'}}</span>
-			小程序的 <span class="color-f70">{{currentWidgetHasEventHandler.eventParams.xcx_page_url?currentWidgetHasEventHandler.eventParams.xcx_page_url:'默认首页'}}</span>
-		</ng-container>
-
 		<!-- 切换状态 -->
 		<ng-container *ngSwitchCase="'tapVesselStatusHandler'">
 			切换状态至 <span class="color-f70">{{conversionVesselStatusName(currentWidgetHasEventHandler.eventParams.to_status_id)}}</span>

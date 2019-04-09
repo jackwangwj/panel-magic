@@ -21,7 +21,7 @@ export class HsXcxCanActivate implements CanActivate {
     ) {}
 
     /**
-     * 小程序详情守卫
+     * 页面内容详情守卫
      * @param route
      * @param state
      * @author GR-05

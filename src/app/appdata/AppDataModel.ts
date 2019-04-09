@@ -5,16 +5,6 @@ import { get }	from 'lodash'
 import { NewPageModel } from '../panel-extend/panel-catalogue/Model';
 import { WidgetModel } from '../panel-extend/panel-widget/Model/WidgetModel';
 
-interface ITemplateTypeAble {
-	// 模版类型，如果不是模板则为null
-	template_type: 'page' | 'xcx' | null,
-	name?: string,
-	// 0代表未上架状态，1代表上架状态
-	status?: 0 | 1,
-	// 标签id
-	tag_id?: number
-}
-
 /**
  * 配置项选项
  */
@@ -38,14 +28,12 @@ export class AppDataModel{
 	public app_config: AppConfigModel;
 	// 项目名称
 	public app_name: string;
-	// 小程序的简介
+	// 简介
 	public remark: string;
 	// 缩略图
     public thumb: string;
     //所有表单数据
     public form_data:Array<FormData>
-    // 模板信息,如果不是模板则该字段的template_type为null
-    public template_info: ITemplateTypeAble
 
 	constructor(){
 		this.initData()
@@ -62,7 +50,6 @@ export class AppDataModel{
 		this.app_name = ''
 		this.remark = ''
 		this.thumb = ''
-		this.template_info = { template_type: null }
 	}
 
 	/**

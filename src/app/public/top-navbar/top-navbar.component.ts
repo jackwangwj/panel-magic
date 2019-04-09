@@ -30,7 +30,7 @@ export class TopNavbarComponent implements OnInit {
     // 保存模板弹窗的按钮loading
     public saveTemplateBtnLoading: boolean = false
 
-    // 当前小程序的信息
+    // 当前页面内容的信息
     public get appDataInfo(): AppDataModel {
         return this.ads.appDataModel
     }
@@ -55,27 +55,17 @@ export class TopNavbarComponent implements OnInit {
      * @return    [return]
      */
     public handleSave(): void {
-        if( this.ads.appDataModel.template_info.template_type == null ) {
-            this.tbns.saveXcxAppData()
-        }else {
-            // 如果是要保存模板则弹窗保存模板的设置
-            this.isShowTemplateModal = true
-        }
-    }
+
+	}
 
     /**
      * @author GR-03
-     * @copyright 处理发布小程序或保存模板并上架的按钮
+     * @copyright 处理发布或保存模板并上架的按钮
      * @param     [param]
      * @return    [return]
      */
     public handlePublishSiteOrShelvesTemplate(): void {
-        if( this.ads.appDataModel.template_info.template_type == null ) {
-            this.tbns.publishSiteModel['isVisiableModal'] = true
-        }else {
-            this.isShowTemplateModal = true
-            // 修改templateModel.status的数据
-        }
-    }
+
+	}
 
 }

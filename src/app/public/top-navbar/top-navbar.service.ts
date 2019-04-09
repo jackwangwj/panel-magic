@@ -27,7 +27,7 @@ export class TopNavbarService {
 
 	/**
 	 * @author GR-03
-	 * @copyright 保存小程序
+	 * @copyright 保存
 	 * @param     [param]
 	 * @return    [return]
 	 * @param     {boolean          = false}       is_version [description]
