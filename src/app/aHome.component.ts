@@ -12,8 +12,6 @@ import {
 } 	from '@angular/router'
 import { Subscription }	from 'rxjs'
 
-import { animations }	from './public/animations'
-
 import { ImageGalleryService } from '@ng-public/image-gallery/image-gallery.service';
 
 @Component({
@@ -43,8 +41,7 @@ import { ImageGalleryService } from '@ng-public/image-gallery/image-gallery.serv
 		<!-- 选择图片组件 -->
 		<app-image-gallery></app-image-gallery>
 	`,
-	styleUrls: ['./app.component.scss'],
-	animations: [animations.rightIn, animations.fadeIn]
+	styleUrls: ['./app.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
