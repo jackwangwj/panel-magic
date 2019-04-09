@@ -110,7 +110,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
 	 * @param err
 	 */
     handleError(err: HttpErrorResponse): Observable<any> {
-        if (err.name == "TimeoutError") {
+        if (err.name == "HttpErrorResponse") {
             this.nzNotificationService.create(
                 "error",
                 "网络超时",

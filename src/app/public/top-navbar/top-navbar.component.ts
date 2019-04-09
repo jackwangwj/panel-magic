@@ -6,7 +6,7 @@ import {
     ElementRef,
     NgZone
 } 	from '@angular/core';
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs'
 import { FormBuilder } from '@angular/forms'
 
 import { NzMessageService }	from 'ng-zorro-antd'

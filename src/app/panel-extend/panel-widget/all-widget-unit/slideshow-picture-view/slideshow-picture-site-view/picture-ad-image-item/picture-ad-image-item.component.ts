@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Subscription }	from 'rxjs/Subscription'
+import { Subscription }	from 'rxjs'
 
 import { PictureAdImageItemService }	from './picture-ad-image-item.service'
 import { ImageGalleryService }	from '@ng-public/image-gallery/image-gallery.service'

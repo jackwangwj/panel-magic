@@ -71,7 +71,6 @@ export class SlideshowPictureViewComponent implements OnInit, OnDestroy {
 							e.width = _profile_width
 						});
 						this.carouselHeight = _profile_height;
-						this.carouselEl.updateMode()
 					}
 				})
 		}

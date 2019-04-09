@@ -28,10 +28,12 @@ import { AppDataService } from './appdata/app-data.service'
 import { registerLocaleData } from '@angular/common'
 import zh from '@angular/common/locales/zh'
 
-registerLocaleData(zh)
+registerLocaleData(zh);
 import { DirectiveService } from '@ng-public/directive/directive.service'
 
 import { environment } from 'environments/environment';
+import { FormsModule } from '@angular/forms';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
 @NgModule({
 	declarations: [AppComponent, HomeComponent],
@@ -45,12 +47,15 @@ import { environment } from 'environments/environment';
 		CoreModule,
 		CookieModule.forRoot(),
 		ServicesModule.forRoot(),
-		RouterModule.forRoot(AppRoutes, { useHash: true })
+		RouterModule.forRoot(AppRoutes, { useHash: true }),
+		FormsModule,
+		NgZorroAntdModule
 	],
 	providers: [
 		AppService,
 		DirectiveService,
-		AppDataService
+		AppDataService,
+		{ provide: NZ_I18N, useValue: zh_CN }
 	],
 	bootstrap: [AppComponent]
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, forwardRef, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs'
 import { ColorEvent } from 'ngx-color';
 
 const DefaultColorList = [

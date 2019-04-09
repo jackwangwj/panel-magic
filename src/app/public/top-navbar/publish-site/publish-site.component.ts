@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs'
 
 import { TopNavbarService }	from '../top-navbar.service'
 import { AppDataService }	from '../../../appdata/app-data.service'

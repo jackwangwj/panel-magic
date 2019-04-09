@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 
 
-import { Subscription }	from 'rxjs/Subscription'
+import { Subscription }	from 'rxjs'
 
 import { NzNotificationService } from 'ng-zorro-antd'
 import { MapModel }	from './Model'

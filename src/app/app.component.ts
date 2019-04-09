@@ -4,10 +4,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-root',
-	template: `
-		<link rel="stylesheet" type="text/css" [href]="iconUrl" />
-		<router-outlet></router-outlet>
-	`,
+	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
