@@ -5,6 +5,7 @@ import {
 
 import { ImageGalleryService }    from '@ng-public/image-gallery/image-gallery.service'
 import { WidgetModel } from '../../../Model/WidgetModel';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-rich-text-site-view',
@@ -15,6 +16,8 @@ export class RichTextSiteViewComponent implements OnInit {
 
 	private _autoWidget: WidgetModel = new WidgetModel();
 
+	public safeQuillThemeCss: SafeResourceUrl = ''
+
     @Input()
     public get autoWidget(): WidgetModel {
         return this._autoWidget;
@@ -24,7 +27,10 @@ export class RichTextSiteViewComponent implements OnInit {
     }
 
     constructor(
-    ) { }
+		private readonly sanitizer: DomSanitizer
+    ) {
+		this.safeQuillThemeCss = this.sanitizer.bypassSecurityTrustResourceUrl(`/assets/quill/quill.bubble.css`)
+	}
 
     ngOnInit() { }
 

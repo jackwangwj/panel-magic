@@ -42,4 +42,4 @@ export const panelSiteComponentObj = {
 }
 
 
-export const panelWidgetFixedUnitLsit = [mapWidget, slideshowpictureWidget]
+export const panelWidgetFixedUnitLsit = [mapWidget, richTextWidget, slideshowpictureWidget]
