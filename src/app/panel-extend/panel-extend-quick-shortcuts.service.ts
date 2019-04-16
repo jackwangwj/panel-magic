@@ -1,8 +1,8 @@
-import { NgZone, Injectable, ElementRef } from '@angular/core';
+import { NgZone, Injectable } from '@angular/core';
 import { PanelScopeEnchantmentService } from './panel-scope-enchantment/panel-scope-enchantment.service';
 import { ScopeEnchantmentModel, PanelInfoModel } from './Model';
 import { PanelExtendService } from './panel-extend.service';
-import { BehaviorSubject, Subject, fromEvent, Subscription, Observable } from 'rxjs';
+import { BehaviorSubject, fromEvent, Subscription, Observable } from 'rxjs';
 import { PanelWidgetModel } from './panel-widget/Model';
 import { PanelExtendMoveBackService } from './panel-extend-move-back.service';
 import { PanelAssistArborService } from './panel-assist-arbor/panel-assist-arbor.service';
@@ -21,7 +21,6 @@ import { PanelSeniorVesselEditService } from './panel-senior-vessel-edit/panel-s
 import { AppDataService } from 'app/appdata/app-data.service';
 import { panelWidgetComponentObj } from './panel-widget/all-widget-container';
 import { TopNavbarService } from '@ng-public/top-navbar/top-navbar.service';
-import { HostItemModel } from './panel-widget/Model/HostModel';
 
 @Injectable({
 	providedIn: 'root'
@@ -49,12 +48,8 @@ export class PanelExtendQuickShortcutsService {
 		private nzMessageService: NzMessageService,
 		private draggableTensileCursorService: DraggableTensileCursorService,
 		private panelSeniorVesselEditService: PanelSeniorVesselEditService,
-		private hsFileService: HsFileService,
 		private appDataService: AppDataService,
-		private httpClient: HttpClient,
-		private appService: AppService,
 		private panelScaleplateService: PanelScaleplateService,
-		private topNavbarService: TopNavbarService,
 		private panelSoulService: PanelSoulService,
 		private panelAssistArborService: PanelAssistArborService,
 		private panelExtendMoveBackService: PanelExtendMoveBackService,
@@ -115,7 +110,6 @@ export class PanelExtendQuickShortcutsService {
 					// 按下了ctr+s 或 command+s 执行保存操作
 					if ((keyboard.metaKey == true && keyboard.keyCode == 83) || (keyboard.ctrlKey == true && keyboard.keyCode == 83)) {
 						keyboard.preventDefault()
-						this.topNavbarService.saveXcxAppData()
 					}
 					// 按下了ctr+c 或 command+c 执行复制操作
 					if ((keyboard.metaKey == true && keyboard.keyCode == 67) || (keyboard.ctrlKey == true && keyboard.keyCode == 67)) {
@@ -198,7 +192,7 @@ export class PanelExtendQuickShortcutsService {
 				}
 			})
 		})
-		this.listenKeyboardUp$ = fromEvent(document, 'keyup').subscribe((keyboard: KeyboardEvent) => {
+		this.listenKeyboardUp$ = fromEvent(document, 'keyup').subscribe(() => {
 			this.zone.run(() => {
 				this.panelScopeEnchantmentService.isOpenAltCalc$.next(true)
 				this.panelExtendService.isOpenSpacebarMove$.next(false)
@@ -225,7 +219,7 @@ export class PanelExtendQuickShortcutsService {
 	public performCopy(): void {
 		const _inset_widget = this.scopeEnchantmentModel.outerSphereInsetWidgetList$.value;
 		if (Array.isArray(_inset_widget) && _inset_widget.length > 0 ) {
-			const _clip_copy = this.clearClipboardPaste().subscribe(b => { _clip_copy.unsubscribe(); });
+			const _clip_copy = this.clearClipboardPaste().subscribe(() => { _clip_copy.unsubscribe(); });
 			this.panelScopeEnchantmentService.clipboardList$.next(cloneDeep(_inset_widget))
 		};
 	}
@@ -251,7 +245,7 @@ export class PanelExtendQuickShortcutsService {
 			const _clip_paste = this.subClipboardPaste().subscribe(file=>{
 				if( file && file instanceof File ) {
 					// 说明浏览器的粘贴板有图片文件，执行（上传 -> 生成widget组件 -> 选中图片组件）
-					this.handleForClipboardPasteFile(file)
+					this.handleForClipboardPasteFile()
 				}else {
 					_done()
 				};
@@ -360,7 +354,7 @@ export class PanelExtendQuickShortcutsService {
 	/**
 	 * 执行图片手动上传操作，然后生成对应的图片组件widget，然后再选中
 	 */
-	public handleForClipboardPasteFile(file: File): void {
+	public handleForClipboardPasteFile(): void {
 		// const _mes_id = this.nzMessageService.loading('文件上传中...',{nzDuration: 0}).messageId;
 		// const _form_data = new FormData();
 		// _form_data.append('file',file,file.name);
