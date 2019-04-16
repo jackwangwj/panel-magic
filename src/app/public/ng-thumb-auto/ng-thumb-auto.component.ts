@@ -9,7 +9,46 @@ import { environment } from 'environments/environment'
 
 @Component({
 	selector: 'ng-thumb-auto',
-	templateUrl: './ng-thumb-auto.component.html',
+	template: `
+		<div class="thumb" [ngSwitch]="type" [ngStyle]="{'justify-content':justify}">
+			<ng-template [ngSwitchCase]="'IMG'">
+				<nz-popover *ngIf="showPreview" [nzPlacement]="'right'">
+					<div nz-popover>
+						<ng-container [ngTemplateOutlet]="typeImg"></ng-container>
+					</div>
+					<ng-template #nzTemplate>
+						<div>
+							<img class="previewImg" [ngStyle]="{'border-radius':circular ? '50%' : '0px'}"
+								src="{{imgLoadErr ? imgErr : fileUrl + imgSrc}}" (error)="imgLoadErr = true" alt="">
+						</div>
+					</ng-template>
+				</nz-popover>
+				<ng-container *ngIf="!showPreview" [ngTemplateOutlet]="typeImg"></ng-container>
+			</ng-template>
+			<ng-template [ngSwitchCase]="'ICON'">
+				<ng-container *ngIf="!imgLoadErr" [ngTemplateOutlet]="typeIconPure"></ng-container>
+				<i *ngIf="imgLoadErr" class="{{iconErr}} color999"
+					[ngStyle]="{'font-size':iconSize + 'px'}"></i>
+			</ng-template>
+			<ng-template [ngSwitchCase]="'PURE'">
+				<ng-container *ngIf="!imgLoadErr" [ngTemplateOutlet]="typeIconPure"></ng-container>
+				<span *ngIf="imgLoadErr" class="bg999" [ngStyle]="{'width':imgSize + 'px','height':imgSize + 'px','border-radius':circular ? '50%' : '0px'}"></span>
+			</ng-template>
+
+
+			<ng-template #typeImg>
+				<div class="imgLayer" [ngStyle]="{'width':imgSize + 'px','height':imgSize + 'px','border-radius':circular ? '50%' : '0px','border':isShowBorder ? '1px solid #e8e8e8' : ''}">
+					<img src="{{imgLoadErr ? imgErr : fileUrl + imgSrc}}" (error)="imgLoadErr = true" alt="">
+				</div>
+			</ng-template>
+			<ng-template #typeIconPure>
+				<div class="imgLayer" [ngStyle]="{'width':imgSize + 'px','height':imgSize + 'px','border-radius':circular ? '50%' : '0px','border':isShowBorder ? '1px solid #e8e8e8' : ''}">
+					<img *ngIf="!imgLoadErr"
+						src="{{fileUrl + imgSrc}}" (error)="imgLoadErr = true" alt="">
+				</div>
+			</ng-template>
+		</div>
+	`,
 	styleUrls: ['./ng-thumb-auto.component.scss']
 })
 export class MgrThumbAutoComponent implements OnInit, OnChanges {
@@ -54,15 +93,7 @@ export class MgrThumbAutoComponent implements OnInit, OnChanges {
 	constructor() {
 		this.type = 'IMG'
 		this.justify = 'center'
-		if (this.isDomainUrl) {
-			if (environment.production) {
-				this.fileUrl = environment.fileurl
-			} else {
-				this.fileUrl = environment.fileurl
-			}
-		} else {
-			this.fileUrl = ''
-		}
+		this.fileUrl = (this.isDomainUrl && environment.production) ? environment.fileurl : ''
 	}
 
 	ngOnInit() {}
@@ -72,15 +103,7 @@ export class MgrThumbAutoComponent implements OnInit, OnChanges {
 			this.imgLoadErr = false
 		}
 		if (changes.fileUrl) {
-			if (this.isDomainUrl) {
-				if (changes.fileUrl.currentValue) {
-					this.fileUrl = changes.fileUrl.currentValue
-				} else {
-					this.fileUrl = environment.fileurl
-				}
-			} else {
-				this.fileUrl = ''
-			}
+			this.fileUrl = this.isDomainUrl ? changes.fileUrl.currentValue ? changes.fileUrl.currentValue : environment.fileurl : ''
 		}
 	}
 }
