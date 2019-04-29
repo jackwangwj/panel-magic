@@ -73,13 +73,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 		if (this.activeRouterRX$) this.activeRouterRX$.unsubscribe();
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 监听路由变化然后对loading效果进行设置
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {RouterEvent} evt [description]
-	 */
+	// 监听路由变化然后对loading效果进行设置
 	public resolveRouter(evt: RouterEvent): void {
 		if (evt instanceof NavigationEnd) {
 			let ele = document.querySelector('#GLOBALLOADING')

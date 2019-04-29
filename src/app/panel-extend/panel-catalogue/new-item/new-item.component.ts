@@ -48,12 +48,6 @@ export class NewItemComponent implements OnInit, OnDestroy {
 	ngOnDestroy(){
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 点击确定返回数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public popAffirm(): void {
 		this.emitData.emit({
 			type:'affirm',
@@ -61,12 +55,6 @@ export class NewItemComponent implements OnInit, OnDestroy {
 		})
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 点击取消关闭该视图
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public popClose(): void {
 		this.emitData.emit({
 			type:'close',

@@ -22,13 +22,6 @@ export class MapModel {
 		this.setData(data)
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       data [description]
-	 */
 	public setData(data: any): void {
 		if (data && Object.keys(data).length > 0) {
 			this.text = data['text']
@@ -39,12 +32,6 @@ export class MapModel {
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.text = '广东省深圳市'
 		this.address = ''
@@ -60,12 +47,6 @@ export class MapModel {
 		]
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 处理markers
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public handleMarkers(): void {
 		this.markers = [
 			{

@@ -25,7 +25,6 @@ function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
 /**
  * core 模块一般放一些只需引入一次的服务比如 http 拦截器、全局单例服务等等
  * 但是由于 angular6 中单例服务可以直接在服务中声明 root，所以可以不用在此模版引用声明
- * @author GR-05
  */
 @NgModule({
     imports: [

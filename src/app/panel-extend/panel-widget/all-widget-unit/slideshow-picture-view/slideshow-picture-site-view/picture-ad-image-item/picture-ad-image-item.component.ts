@@ -63,13 +63,9 @@ export class PictureAdImageItemComponent implements OnInit {
 	}
 
 	/**
-	 * @author GR-03
-	 * @copyright
 	 * 根据url创建image对象，获取图片的宽和高
 	 * 设置image对象
 	 * 用来根据图片的url获取到原始图片的宽和高
-	 * @param     [param]
-	 * @return    [return]
 	 */
 	public handleImageStyleContent( url: string ): void {
 		if( url != '' ) {

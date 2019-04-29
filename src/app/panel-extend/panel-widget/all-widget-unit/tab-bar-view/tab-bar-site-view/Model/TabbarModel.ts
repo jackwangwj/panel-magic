@@ -17,13 +17,6 @@ export class TabbarModel {
 		this.setData( obj )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       obj [description]
-	 */
 	public setData( obj: any ): void {
 		if( obj && Object.keys( obj ).length > 0 ) {
 			this.checkColor = obj['checkColor']
@@ -38,35 +31,16 @@ export class TabbarModel {
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.navList 	= [ new NavigationModel() , new NavigationModel() ]
 		this.initColor 	= '#000'
 		this.checkColor = '#000'
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 添加导航的函数
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public addNavList(): void {
 		this.navList.push( new NavigationModel() )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 删除某一个导航的函数
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {number}    index [description]
-	 */
 	public delNavList( index: number ): void {
 		this.navList.splice( index, 1 )
 	}

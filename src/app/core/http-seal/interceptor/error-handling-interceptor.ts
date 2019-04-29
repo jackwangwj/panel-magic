@@ -54,11 +54,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
         }
     }
 
-    /**
-     * 通过参数判断是否需要执行错误拦截
-     * @author GR-05
-     * @param req 请求体数据
-     */
+    // 通过参数判断是否需要执行错误拦截
     isSkipErrorHandle(req: HttpRequest<any>): boolean | HttpRequest<any> {
         if (req.method == 'GET' && req.params.has(this._skipKey)) {
             return req.clone({

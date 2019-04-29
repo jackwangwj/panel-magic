@@ -23,13 +23,6 @@ export class NavigationModel{
 		this.setData( obj )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       obj [description]
-	 */
 	public setData( obj: any ): void {
 		if( obj && Object.keys( obj ).length > 0 ) {
 			if( obj['title'] )	 		this.title 		= obj['title']
@@ -42,12 +35,6 @@ export class NavigationModel{
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.title 		= '标题'
 		this.initImg 	= ''

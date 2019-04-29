@@ -29,13 +29,6 @@ export class PictureAdModel{
 		this.setData( obj )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值操作
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any    = {}} obj [description]
-	 */
 	public setData( obj: any = {} ): void {
 		if( obj && Object.keys( obj ).length > 0 ) {
 			this.imageList 		= ((): Array<ImageItemModel>=>{
@@ -56,12 +49,6 @@ export class PictureAdModel{
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 格式化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.imageList 		= []
 		this.fillType 		= ''
@@ -72,14 +59,6 @@ export class PictureAdModel{
 		this.hostPaddingWidth = 414
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 添加新的图片列表
-	 * 参数src为图片的地址，必传
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {string}    src [description]
-	 */
 	public addImage( src: string ): void {
 		let _img_obj = new Image()
 		_img_obj.src = environment.fileurl + src
@@ -90,32 +69,15 @@ export class PictureAdModel{
 		} ) )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 删除某一个图片列表的数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public delImage( index: number ): void {
 		this.imageList.splice( index,1 )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 重置图片列表数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initImageList(): void {
 		this.imageList.length = 0
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 根据第一张图片的宽度和模版类型的固定宽带等比例的计算外部容器的高度
-	 * @param     [param]
-	 * @return    [return]
-	 */
+	// 根据第一张图片的宽度和模版类型的固定宽带等比例的计算外部容器的高度
 	public handleTransverseHeight( _width: number ): void {
 		if( this.imageList && Array.isArray( this.imageList ) && this.imageList.length > 0 ) {
 			let _first_img_width  = this.imageList[0]['width']
@@ -129,13 +91,7 @@ export class PictureAdModel{
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 根据第一张图片的宽度和模版类型的固定宽带等比例的计算外部容器的轮播图的高度
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {number}    _width [description]
-	 */
+	// 根据第一张图片的宽度和模版类型的固定宽带等比例的计算外部容器的轮播图的高度
 	public handleCarouselHeight( _width: number ): void {
 		if( this.imageList && Array.isArray( this.imageList ) && this.imageList.length > 0 ) {
 			let _first_img_width  = this.imageList[0]['width']

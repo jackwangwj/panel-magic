@@ -31,12 +31,6 @@ export class AppDataObjectModel{
 		this.setData( data )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.router = ''
 		this.eles = []
@@ -52,13 +46,6 @@ export class AppDataObjectModel{
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       data [description]
-	 */
 	public setData( data: any ): void {
 		if( data && Object.keys( data ).length > 0 ) {
 			this.router 		= data.router
@@ -67,14 +54,7 @@ export class AppDataObjectModel{
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值每一个页面项的customfeature数据配置
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {'bgColor' |     'isHasTabbar' | 'name' | 'title'} keys [description]
-	 * @param     {any}          value [description]
-	 */
+	// 赋值每一个页面项的customfeature数据配置
 	public setCustomfeatureData(keys: 'bgColor' | 'isHasTabbar' | 'name' | 'title' | 'isHomePage' | 'navBgColor' | 'navFrontColor' | 'pageHeight', value: any ): void {
 		this.customfeature[keys] = value
 	}

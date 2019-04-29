@@ -43,13 +43,6 @@ export class OtherSiteComponent implements OnInit {
 		})() :checkValue
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 处理文字大小，添加px字段
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {number}    size [description]
-	 */
 	public handleFontSize( size: number ): void {
 		this.autoWidget['style']['data']['font-size'] = size + 'px'
 	}

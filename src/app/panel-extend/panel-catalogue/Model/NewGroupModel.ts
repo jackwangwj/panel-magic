@@ -22,12 +22,6 @@ export class NewGroupModel {
 		this.initData()
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.visible = false
 		this.name = ''

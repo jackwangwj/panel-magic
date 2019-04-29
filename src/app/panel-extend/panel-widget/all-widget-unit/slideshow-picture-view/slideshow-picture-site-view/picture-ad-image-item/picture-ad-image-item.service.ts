@@ -21,13 +21,7 @@ export class PictureAdImageItemService {
 	constructor(
 	) { }
 
-	/**
-	 * @author GR-03
-	 * @copyright 点击添加背景图选择某一张图片之后增加一个背景图列表
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {string}    src [description]
-	 */
+	// 点击添加背景图选择某一张图片之后增加一个背景图列表
 	public addNewImageList( src: string ): void {
 		this.pictureAdModel.addImage( src )
 	}

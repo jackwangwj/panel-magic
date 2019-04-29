@@ -17,12 +17,6 @@ export class PagesModel {
 		this.setData(data)
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.title = ''
 		this.name = ''
@@ -33,13 +27,6 @@ export class PagesModel {
 		}, 10)
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       data [description]
-	 */
 	public setData(data: any): void {
 		if (data && Object.keys(data).length > 0) {
 			if (data['title']) this.title = data['title']

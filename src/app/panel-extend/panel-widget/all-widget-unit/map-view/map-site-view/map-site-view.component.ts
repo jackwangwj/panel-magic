@@ -79,13 +79,7 @@ export class MapSiteViewComponent implements OnInit {
 		if( this._subscription ) this._subscription.unsubscribe()
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 接收标记拖拽的函数
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any}       res [description]
-	 */
+	// 接收标记拖拽的函数
 	public acceptMarkerMovEnd( res: any ): void {
 		if( res['type'] == 'dragend' ) {
 			this.map.setCenter( res['lnglat'] )

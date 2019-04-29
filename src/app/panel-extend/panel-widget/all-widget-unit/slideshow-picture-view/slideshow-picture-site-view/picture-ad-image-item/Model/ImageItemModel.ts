@@ -30,12 +30,6 @@ export class ImageItemModel {
 		this.setData( data )
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.imgSrc 	 	= '';
 		this.link 		 	= '';
@@ -49,13 +43,6 @@ export class ImageItemModel {
 		this.eventParams    = null
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {any    = {}} obj [description]
-	 */
 	public setData( obj: any ): void {
 		if( obj && Object.keys( obj ).length > 0 ) {
 			if( obj['imgSrc'] ) this.imgSrc = obj['imgSrc'];
@@ -71,28 +58,10 @@ export class ImageItemModel {
 		}
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright
-	 * 根据外部容器的高度以及图片的原始高度宽度等比例的计算出需要显示在容器里的宽度
-	 * 仅对模版3,4,5有效
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {number}    _height [description]
-	 */
 	public handleContainerWidth( _height: number ): void {
 		this.containerWidth = (this.width * _height) / this.height
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright
-	 * 根据外部容器的高度以及图片的原始高度宽度等比例的计算出需要显示在容器里的高度
-	 * 仅对模版1有效
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {number}    _width [description]
-	 */
 	public handleContainerHeight( _height: number ): void {
 		this.containerHeight = (this.width * _height) / this.width
 	}

@@ -10,24 +10,12 @@ export class NewPageModel {
 		this.initData()
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 初始化数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public initData(): void {
 		this.visible = false
 		this.name = '新页面'
 		this.groupId = 0
 	}
 
-	/**
-	 * @author GR-03
-	 * @copyright 赋值数据
-	 * @param     [param]
-	 * @return    [return]
-	 */
 	public setData(data: any): void {
 		this.name = data.name
 		this.groupId = data.groupId

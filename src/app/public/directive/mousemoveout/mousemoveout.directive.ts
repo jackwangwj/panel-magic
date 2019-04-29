@@ -17,13 +17,6 @@ export class MousemoveoutDirective {
 
 	constructor() { }
 
-	/**
-	 * @author GR-03
-	 * @copyright 监听元素的移入和移出事件
-	 * @param     [param]
-	 * @return    [return]
-	 * @param     {TYPE}      type [description]
-	 */
 	public listenMouse( type: TYPE ): void {
 		this.emitMouseType.emit( type )
 	}

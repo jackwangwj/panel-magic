@@ -20,13 +20,8 @@ export class HsXcxCanActivate implements CanActivate {
         private appDataService: AppDataService
     ) {}
 
-    /**
-     * 页面内容详情守卫
-     * @param route
-     * @param state
-     * @author GR-05
-     */
-	canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
+    // 页面内容详情守卫
+	public canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): Observable<boolean> | Promise<boolean> | boolean {
 		let _app_id = route.params.id
         this.appDataService.appDataModel.app_id = _app_id;
         if( _app_id == undefined ) {
