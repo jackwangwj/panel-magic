@@ -27,13 +27,21 @@ export class NavigationBarViewService {
 	constructor() {}
 
 	// 设置标题字体颜色
-	public setFrontColor(color: string): void {
-		this.navigationWidgetModel.frontColor = color
+	public setFrontColor(color: string): this {
+		this.navigationWidgetModel.frontColor = color;
+		return this
 	}
 
 	// 设置标题背景颜色
-	public setBgColor(color: string): void {
-		this.navigationWidgetModel.bgColor = color
+	public setBgColor(color: string): this {
+		this.navigationWidgetModel.bgColor = color;
+		return this
+	}
+
+	// 附值标题设置数据模型
+	public setNavigationWidgetSiteData(data: NavigationBarModel = this.navigationWidgetModel): this {
+		this.navigationPanelSiteWidget.autoWidget.content.navigationModel = data;
+		return this
 	}
 
 	// 重置颜色
@@ -41,9 +49,5 @@ export class NavigationBarViewService {
 		this.navigationWidgetModel.reset()
 	}
 
-	// 附值标题设置数据模型
-	public setNavigationWidgetSiteData(data: NavigationBarModel = this.navigationWidgetModel): void {
-		this.navigationPanelSiteWidget.autoWidget.content.navigationModel = data
-	}
 }
 

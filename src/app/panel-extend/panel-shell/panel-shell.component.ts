@@ -84,8 +84,8 @@ export class PanelShellComponent implements OnInit, OnDestroy {
 				};
 				// 同时设置当前页面的标题拦颜色数据
 				this.navigationBarViewService.setFrontColor(_current_customfeature.navFrontColor)
-				this.navigationBarViewService.setBgColor(_current_customfeature.navBgColor);
-				this.navigationBarViewService.setNavigationWidgetSiteData();
+											 .setBgColor(_current_customfeature.navBgColor)
+											 .setNavigationWidgetSiteData();
 				// 同时设置当前页面的背景色
 				this.panelInfo.bgColor = _current_customfeature.bgColor;
 				// 同事设置当前页面的高度
